@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<div class="wrapper">
+    <header>Quote of the Day</header>
+    <div class="content">
+        <div class="quote-area">
+            <i class="fas fa-quote-left"></i>
+
+            <p class="quote">
+                <%= item.quote%>
+            </p>
+
+            <i class="fas fa-quote-right"></i>
+        </div>
+    </div>
+    <div class="buttons">
+        <div class="features">
+            <ul>
+
+                <li class="copy"><i class="fas fa-copy"></i></li>
+
+            </ul>
+            <form action="/randomquote" method="POST">
+                <button type="submit">New Quote</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        copyButton = document.querySelector(".copy")
+        copyText = document.querySelector(".quote")
+        copyButton.addEventListener("click", () => {
+            navigator.clipboard.writeText(copyText.innerText)
+        })
+
+        alert("Text Copied !")
+    })
+</script>
+
+</body>
+
+</html>
